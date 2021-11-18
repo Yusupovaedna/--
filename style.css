@@ -1,0 +1,28 @@
+body{
+    margin: 50px;
+    text-align: center;
+
+    font-family: "Calibri Light";
+}
+header{
+    font-family: Serif;
+    font-size: 20px;
+    color: #332d2d;
+    background: #d2e7f8;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+.task{
+    text-align: left;
+}
+table{
+    margin: auto;
+}
+canvas {
+    border: 1px solid black;
+}
+iframe{
+    border: none;
+    text-align: center;
+}
