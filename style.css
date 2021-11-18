@@ -21,9 +21,16 @@ canvas {
     border: 1px solid black;
 }
 iframe{
+    width: 1200px;
     border: none;
     text-align: center;
 }
-/*.result_table{*/
-/*    margin-top: -130px;*/
-/*}*/
+
+.resultTab {
+    padding: 20px;
+
+}
+.resultTab td{
+    text-align: center;
+    padding: 10px;
+}

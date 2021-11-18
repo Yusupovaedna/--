@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Лабораторная работа №1</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script type="text/javascript" src="validation.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="tab.js"></script>
+
 </head>
 <body>
 <header>
@@ -63,9 +68,6 @@
         </td>
     </tr>
     <tr class="paint">
-        <!--        <td>-->
-        <!--            <img src="img.png">-->
-        <!--        </td>-->
         <td>
             <canvas width="500" height="500" id="canvas"></canvas>
             <script src="table.js"></script>
@@ -74,7 +76,7 @@
 
     <tr class="radio">
         <td>
-            <form name="forma" action="get.php" method="GET" onsubmit="return validation_form();" target="result">
+            <form name ="forma" action="get.php" method="get" onsubmit="validation_form()" target="result">
                 <table class="form">
                     <tr>
                         <td>
@@ -100,7 +102,7 @@
                     <tr>
                         <td>
                             Выберите R:
-                            <select name="R">
+                            <select name="R" id="R">
                                 <option value="0">Выберите R</option>
                                 <option value="1">1</option>
                                 <option value="1.5">1.5</option>
@@ -125,23 +127,7 @@
             <iframe id="result" name="result"></iframe>
         </td>
     </tr>
-    <table class="result_table">
-        <col width="50">
-        <col width="50">
-        <col width="50">
-        <col width="75">
-        <thead>
-        <td>X</td>
-        <td>Y</td>
-        <td>R</td>
-        <td>Result</td>
-        <td>Answer time</td>
-        <td>Date time</td>
-        </thead>
-        <tbody id="table_body">
 
-        </tbody>
-    </table>
 </table>
 
 </body>
