@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа №1</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+
+        function validation_form ( )
+        {
+            let valid = true;
+
+            if ( document.forma.R.selectedIndex === 0 )
+            {
+                alert ( "Пожалуйста, выберите R." );
+                valid = false;
+            }
+
+            let y = this.y.value;
+            y = y.replace(/,/, ".");
+            const test = /[^\d-,.]/.test(y);
+
+            if (test || y ==="" || isNaN(y)) {
+                alert ( "Значение Y введено неверно. Y должен быть числом" );
+                valid = false;
+            }
+            else if (y<-5 || y>5){
+                alert ( "Y должен находиться в пределе от -5 до 5" );
+                valid = false;
+            }
+            return valid;
+        }
+    </script>
+</head>
+<body>
+<header>
+    Карандашева Надежда, Юсупова Эдна<br>
+    Группа P33202<br>
+    Вариант: 21059
+</header>
+<table>
+    <tr>
+        <td>
+            <div class="task">
+                <p>Разработать PHP-скрипт, определяющий попадание точки на координатной плоскости в заданную область, и
+                    создать
+                    HTML-страницу, которая формирует данные для отправки их на обработку этому скрипту.
+                </p>
+                <p>
+                    Параметр R и координаты точки должны передаваться скрипту посредством HTTP-запроса. Скрипт должен
+                    выполнять
+                    валидацию данных и возвращать HTML-страницу с таблицей, содержащей полученные параметры и результат
+                    вычислений -
+                    факт попадания или непопадания точки в область. Предыдущие результаты должны сохраняться между
+                    запросами
+                    и
+                    отображаться в таблице.
+                </p>
+                <p>Кроме того, ответ должен содержать данные о текущем времени и времени работы скрипта.
+                </p>
+                <p class="bold">Разработанная HTML-страница должна удовлетворять следующим требованиям:
+                </p>
+                <ul>
+                    <li>Для расположения текстовых и графических элементов необходимо использовать табличную верстку.
+                    </li>
+                    <li>Данные формы должны передаваться на обработку посредством GET-запроса.
+                    </li>
+                    <li>Таблицы стилей должны располагаться в самом веб-документе.
+                    </li>
+                    <li>При работе с CSS должно быть продемонстрировано использование селекторов классов, селекторов
+                        потомств,
+                        селекторов дочерних элементов, селекторов идентификаторов а также такие свойства стилей CSS, как
+                        наследование и каскадирование.
+                    </li>
+                    <li>HTML-страница должна иметь "шапку", содержащую ФИО студента, номер группы и новер варианта. При
+                        оформлении
+                        шапки необходимо явным образом задать шрифт (serif), его цвет и размер в каскадной таблице
+                        стилей.
+                    </li>
+                    <li>Отступы элементов ввода должны задаваться в пикселях.
+                    </li>
+                    <li>Страница должна содержать сценарий на языке JavaScript, осуществляющий валидацию значений,
+                        вводимых
+                        пользователем в поля формы. Любые некорректные значения (например, буквы в координатах точки или
+                        отрицательный радиус) должны блокироваться.
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    <tr class="paint">
+<!--        <td>-->
+<!--            <img src="img.png">-->
+<!--        </td>-->
+        <td>
+            <canvas width="500" height="500" id="canvas"></canvas>
+            <script src="table.js"></script>
+        </td>
+    </tr>
+
+    <tr class="radio">
+        <td>
+            <form name ="forma" action="get.php" method="GET" onsubmit="return validation_form();" target="result" >
+                <table class="form">
+                    <tr>
+                        <td>
+                            Выберите X:
+                            <input type="radio" checked="checked" name="x" value="-4">-4
+                            <input type="radio" name="x" value="-3">-3
+                            <input type="radio" name="x" value="-2">-2
+                            <input type="radio" name="x" value="-1">-1
+                            <input type="radio" name="x" value="0">0
+                            <input type="radio" name="x" value="1">1
+                            <input type="radio" name="x" value="2">2
+                            <input type="radio" name="x" value="3">3
+                            <input type="radio" name="x" value="4">4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Введите Y:
+                            <input type="text" placeholder="-5..5" name="y" id="y">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Выберите R:
+                            <select name="R">
+                                <option value="0">Выберите R</option>
+                                <option value="1">1</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2</option>
+                                <option value="2.5">2.5</option>
+                                <option value="3">3</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" id="submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                <iframe  id="result" name="result"></iframe>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+
