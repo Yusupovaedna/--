@@ -34,3 +34,8 @@ iframe{
     text-align: center;
     padding: 10px;
 }
+
+.error{
+    background-color: #ffe1ec;
+    border-radius: 20px;
+}
