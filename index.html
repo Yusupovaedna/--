@@ -76,7 +76,7 @@
 
     <tr class="radio">
         <td>
-            <form name ="forma" action="get.php" method="get" onsubmit="validation_form()" target="result">
+            <form name="forma" action="get.php" method="get"  target="result">
                 <table class="form">
                     <tr>
                         <td>
@@ -95,15 +95,14 @@
                     <tr>
                         <td>
                             Введите Y:
-                            <input type="text" placeholder="-5..5" name="y" id="y">
-
+                            <input type="text" placeholder="-5..5" name="y" id="y" oninput="validate()"
+                                   onchange="validate()">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             Выберите R:
                             <select name="R" id="R">
-                                <option value="0">Выберите R</option>
                                 <option value="1">1</option>
                                 <option value="1.5">1.5</option>
                                 <option value="2">2</option>
@@ -111,11 +110,12 @@
                                 <option value="3">3</option>
 
                             </select>
+                            <p id ="demo"></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" id="submit">
+                            <input type="submit" id="submit" disabled="disabled">
                         </td>
                     </tr>
                 </table>
